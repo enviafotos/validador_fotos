@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 EMAIL_REMITENTE = "enviafotos37@gmail.com"
-EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")  # contraseña de aplicación
+EMAIL_PASSWORD = os.getenv("nsrv kgwk gufh jkoo")  # contraseña de aplicación
 def enviar_correo(destinatario, asunto, cuerpo, archivo_adjunto):
    msg = EmailMessage()
    msg['From'] = EMAIL_REMITENTE
