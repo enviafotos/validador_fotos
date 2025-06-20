@@ -19,13 +19,13 @@ def validar_nombre_archivo(nombre_archivo):
    return None, None
 st.title("📸 Validador de Foto para tu Fotocheck")
 st.markdown("""
-**📸 Foto válida:**
-1. **Tamaño:** 340X402 pixeles (ancho x largo)  
+### ✅ Foto válida:
+1. **Tamaño:** 340X402 píxeles (ancho x largo)  
 2. **Peso y tipo de archivo:** 25 a 30 kb y formato JPG  
 3. **Fondo:** La foto debe ser con fondo de color blanco  
 4. **Vestimenta:** Business Casual o Casual  
 5. **No Selfie**  
-6. El nombre de la foto debe tener la siguiente estructura: **DNI – Nombre**
+6. El nombre del archivo debe tener el formato: **DNI - Nombre.jpg**
 """)
 archivo = st.file_uploader("Sube tu foto", type=["jpg", "jpeg"])
 if archivo:
