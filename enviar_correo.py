@@ -1,20 +1,25 @@
 import smtplib
 from email.message import EmailMessage
 import os
-from dotenv import load_dotenv
-load_dotenv()
-EMAIL_REMITENTE = "enviafotos37@gmail.com"
-EMAIL_PASSWORD = os.getenv("nsrv kgwk gufh jkoo")  # contraseña de aplicación
-def enviar_correo(destinatario, asunto, cuerpo, archivo_adjunto):
-   msg = EmailMessage()
-   msg['From'] = EMAIL_REMITENTE
-   msg['To'] = destinatario
-   msg['Subject'] = asunto
-   msg.set_content(cuerpo)
-   with open(archivo_adjunto, 'rb') as f:
-       file_data = f.read()
-       file_name = os.path.basename(archivo_adjunto)
-       msg.add_attachment(file_data, maintype='image', subtype='jpeg', filename=file_name)
-   with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-       smtp.login(EMAIL_REMITENTE, EMAIL_PASSWORD)
-       smtp.send_message(msg)
+import streamlit as st
+EMAIL_REMITENTE = st.secrets["EMAIL_REMITENTE"]
+EMAIL_PASSWORD = st.secrets["EMAIL_PASSWORD"]
+def enviar_correo(destinatario, asunto, contenido, archivo_adjunto=None):
+   try:
+       mensaje = EmailMessage()
+       mensaje["From"] = EMAIL_REMITENTE
+       mensaje["To"] = destinatario
+       mensaje["Subject"] = asunto
+       mensaje.set_content(contenido)
+       if archivo_adjunto:
+           with open(archivo_adjunto, "rb") as f:
+               datos_adjunto = f.read()
+               nombre_archivo = os.path.basename(archivo_adjunto)
+               mensaje.add_attachment(datos_adjunto, maintype="application", subtype="octet-stream", filename=nombre_archivo)
+       with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+           smtp.login(EMAIL_REMITENTE, EMAIL_PASSWORD)
+           smtp.send_message(mensaje)
+       return True
+   except Exception as e:
+       print(f"Error al enviar el correo: {e}")
+       return False
