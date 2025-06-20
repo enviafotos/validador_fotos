@@ -1,6 +1,6 @@
 streamlit
 opencv-python
-face-recongnition
+face-recognition
 numpy
 pandas
 Pillow
