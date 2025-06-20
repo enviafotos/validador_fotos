@@ -18,7 +18,11 @@ def validar_nombre_archivo(nombre_archivo):
        return coincidencia.group(1), coincidencia.group(2)
    return None, None
 st.title("📸 Validador de Foto para tu Fotocheck")
-archivo = st.file_uploader("Sube tu foto (Foto valida , 1.	Tamaño: 340X402 pixeles (ancho x largo), 2.	Peso y tipo de archivo: 25 a 30 kb y formato JPG)", type=["jpg", "jpeg"])
+archivo = st.file_uploader("Sube tu foto (Foto valida: , 
+1.	Tamaño: 340X402 pixeles (ancho x largo), 
+2.	Peso y tipo de archivo: 25 a 30 kb , 
+3.	Fondo: La foto debe ser con fondo de color blanco ,
+4.	Vestimenta: Business Casual o Casual)", type=["jpg", "jpeg"])
 if archivo:
    nombre_archivo = archivo.name
    dni, nombre = validar_nombre_archivo(nombre_archivo)
