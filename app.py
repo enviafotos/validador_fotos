@@ -49,7 +49,7 @@ if archivo:
                        enviar_correo(
                            destinatario=DESTINATARIO,
                            asunto="Foto validada correctamente",
-                           cuerpo=f"Se ha validado y enviado la foto de {nombre}.",
+                           contenido=f"Se ha validado y enviado la foto de {nombre}.",
                            archivo_adjunto=ruta_temporal
                        )
                        guardar_en_historial(dni, nombre)
