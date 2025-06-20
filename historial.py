@@ -2,7 +2,7 @@ import csv
 import os
 from datetime import datetime
 def guardar_en_historial(dni, nombre):
-   ruta = "historial_envios/historial.csv"
+   ruta = "historial_envios/historial_envios.csv"
    os.makedirs("historial_envios", exist_ok=True)
    existe = os.path.exists(ruta)
    with open(ruta, mode='a', newline='', encoding='utf-8') as archivo:
