@@ -17,7 +17,7 @@ def validar_nombre_archivo(nombre_archivo):
    if coincidencia:
        return coincidencia.group(1), coincidencia.group(2)
    return None, None
-st.title("📸 Validador de Foto para tu Fotocheck")
+st.title("📸 Valida tu Foto")
 st.markdown("""
 ### ✅ Foto válida:
 1. **Tamaño:** 340X402 píxeles (ancho x largo)  
