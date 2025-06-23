@@ -1,10 +1,9 @@
-import os
 import smtplib
 from email.message import EmailMessage
-from dotenv import load_dotenv
-load_dotenv()
-REMITENTE = os.getenv("EMAIL_REMITENTE")
-CLAVE = os.getenv("EMAIL_CLAVE")
+import os
+import streamlit as st
+REMITENTE = st.secrets["EMAIL_REMITENTE"]
+CLAVE = st.secrets["EMAIL_CLAVE"]
 def enviar_correo(destinatario, asunto, mensaje, ruta_imagen):
    msg = EmailMessage()
    msg["Subject"] = asunto
