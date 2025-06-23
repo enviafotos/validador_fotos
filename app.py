@@ -25,9 +25,9 @@ st.markdown("""
 3. **Fondo:** La foto debe ser con fondo de color blanco  
 4. **Vestimenta:** Business Casual o Casual  
 5. **No Selfie**  
-6. El nombre del archivo debe tener la siguiente estructura: 
-Si laboras en LIMA **DNI - Nombre.jpg**
-Si laboras en PROVINCIA **DNI - Nombre - Agencia.jpg**
+6. El nombre del archivo debe tener la siguiente estructura:  
+- Si laboras en LIMA: **DNI - Nombre.jpg**
+- Si laboras en PROVINCIA: **DNI - Nombre - Agencia.jpg**
 """)
 archivo = st.file_uploader("Sube tu foto", type=["jpg", "jpeg"])
 if archivo:
